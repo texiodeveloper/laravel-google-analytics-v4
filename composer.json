@@ -1,0 +1,74 @@
+{
+    "name": "texlib/laravel-google-analytics-v4",
+    "description": "Laravel package to get insights in Google Analytics v4 data",
+    "keywords": [
+        "texiodeveloper",
+        "laravel",
+        "laravel-google-analytics-v4"
+    ],
+    "homepage": "https://github.com/texiodeveloper/laravel-google-analytics-v4",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Texio",
+            "email": "contact.texio@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "google/analytics-data": "^0.9.4",
+        "illuminate/contracts": "^9.0|^10.0",
+        "spatie/laravel-package-tools": "^1.14.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.0",
+        "nunomaduro/collision": "^6.1",
+        "nunomaduro/larastan": "^2.0.1",
+        "orchestra/testbench": "^8.0",
+        "pestphp/pest": "^1.21",
+        "pestphp/pest-plugin-laravel": "^1.1",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan-deprecation-rules": "^1.0",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "phpunit/phpunit": "^9.6",
+        "spatie/laravel-ray": "^1.26",
+        "rector/rector": "^0.15.17"
+    },
+    "autoload": {
+        "psr-4": {
+            "TexLib\\Analytics\\": "src",
+            "TexLib\\Analytics\\Database\\Factories\\": "database/factories"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TexLib\\Analytics\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "TexLib\\Analytics\\AnalyticsServiceProvider"
+            ],
+            "aliases": {
+                "Analytics": "TexLib\\Analytics\\Facades\\Analytics"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
